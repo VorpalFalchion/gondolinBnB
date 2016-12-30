@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from clientcolony import views
+from clientcolony import views as clientcolony_views
+from charsheet import views as charsheet_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.login, name='login'),
+    url(r'^$', clientcolony_views.login, name='login'),
+    url(r'^sheet/', charsheet_views.sheet, name='sheet')
 ]
