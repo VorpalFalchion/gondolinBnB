@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta charset="UTF-8">
     <title>Client | Communities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous"> <!-- Latest compiled and minified CSS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!-- jQuery library -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script> <!-- Latest compiled JavaScript -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--{% load static %}
     <link rel="stylesheet" type="text/css" href='{% static 'login.css' %}' /> -->
 
@@ -15,55 +15,78 @@
         background-image: url("https://quinnphotos.files.wordpress.com/2011/04/jeff_h_books_1.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
       }
 
       .rounded {
-        border-radius: 10px;
-        background-color: rgba(245, 245, 245, 0.8);
-        background-blend-mode: difference;
-        padding: 2rem;
+        border-radius: 1rem;
+        background-color: rgba(245, 245, 245, 0.75);
+        padding: 1rem;
+      }
+
+      .col-centered{
+        float: none;
+        margin: 0 auto;
+      }
+
+      .noSpaceRow {
+        margin-bottom:-2rem;
+      }
+
+      .navbar {
+        border-bottom-left-radius: 0rem;
+        border-bottom-right-radius: 0rem;
       }
     </style>
   </head>
 
   <body>
-    <div class="container login">
-      <div class="row">
-        <div class="offset-md-4 col-md-4 rounded">
-          <h2>Client Communities</h2>
-          <br>
+    <div class="container">
+    <div class="row noSpaceRow">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Client | Communities</a>
+          </div>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="#">Communities</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Login</a></li>
+          </ul>
+        </div>
+    </div>
+
+      <div class="row login">
+        <div class="col-md-4 rounded col-centered">
+          <h2 class="text-center">Access your Account</h2>
           <br>
           <form>
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
 
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
               <br>
-              <button type="submit" class="btn btn-primary">Login</button>
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+              <br>
+              <p>forgot your password? <a href="#">click here</a>
+                <br>
+                new user? <a href="#">create new account</a></p>
             </div>
           </form>
         </div>
       </div>
 
-    <div class="row pt-3 pb-3">
-      <div class="col-md-3 offset-md-2 rounded">
-        <button type="button" class="btn btn-primary">Sign up now!</button>
-      </div>
-
-      <div class="col-md-3 offset-md-2 rounded">
-        <button type="button" class="btn btn-primary">Forgot password?</button>
+      <div class="row">
+        <div class="footer">
+          <p><small>Client Communities @ 2016 | GondolinBnB</small></p>
+        </div>
       </div>
     </div>
-    </div>
-
-    <footer class="container footer">
-      <p>Client Communities @ 2016 | GondolinBnB</p>
-    </footer>
   </body>
 </html>
