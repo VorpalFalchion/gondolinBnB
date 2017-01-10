@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.contrib.auth import views
+from django.contrib.auth import views as auth_views
 from clientcolony import views as clientcolony_views
 from charsheet import views as charsheet_views
 from clientcolony.forms import LoginForm
@@ -25,5 +25,5 @@ urlpatterns = [
     #url(r'^$', clientcolony_views.login, name='login'),
     url(r'^sheet/', charsheet_views.sheet, name='sheet'),
     url(r'', include('clientcolony.urls')),
-    url(r'^login/$', views.login, {'template_name': 'login.html'}),
+    url(r'^login/$', auth_views.login, name='login'),
 ]
