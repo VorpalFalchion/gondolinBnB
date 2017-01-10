@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Client | Communities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--{% load static %}
+    <link rel="stylesheet" type="text/css" href='{% static 'login.css' %}' /> -->
+
+    <style>
+      .login {
+        background-image: url("https://quinnphotos.files.wordpress.com/2011/04/jeff_h_books_1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      .rounded {
+        border-radius: 1rem;
+        background-color: rgba(245, 245, 245, 0.75);
+        padding: 1rem;
+      }
+
+      .col-centered{
+        float: none;
+        margin: 0 auto;
+      }
+
+      .noSpaceRow {
+        margin-bottom:-2rem;
+      }
+
+      .navbar {
+        border-bottom-left-radius: 0rem;
+        border-bottom-right-radius: 0rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+    <div class="row noSpaceRow">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Client | Communities</a>
+          </div>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="#">Communities</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Login</a></li>
+          </ul>
+        </div>
+    </div>
+
+      <div class="row login">
+        <div class="col-md-4 rounded col-centered">
+          <h2 class="text-center">Access your Account</h2>
+          <br>
+          <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+            {% csrf_token %}
+
+            <p class="bs-component">
+              <table>
+                <tr>
+                  <td>{{ form.username.label_tag }}</td>
+                  <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                  <td>{{ form.password.label_tag }}</td>
+                  <td>{{ form.password }}</td>
+                </tr>
+              </table>
+            </p>
+            <p class="bs-component">
+              <center>
+                <input class="btn btn-success btn-sm" type="submit" value="login" />
+              </center>
+            </p>
+            <input type="hidden" name="next" value="{{ next }}" />
+          </form>
+
+          <!--<form>
+            <div class="form-group">
+              <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+              <br>
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+              <br>
+              <p>forgot your password? <a href="#">click here</a>
+                <br>
+                new user? <a href="#">create new account</a></p>
+            </div>
+          </form>-->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="footer">
+          <p><small>Client Communities @ 2016 | GondolinBnB</small></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
