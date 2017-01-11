@@ -102,6 +102,12 @@
                 new user? <a href="#">create new account</a></p>
             </div>
           </form>-->
+          {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+          {% endif %}
+
+          <p>forgot your password? <a href="forgot_password">click here</a></p>
+          <p>new user? <a href="new_user">create new account</a></p>
         </div>
       </div>
 
