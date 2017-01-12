@@ -1,7 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Client | Communities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+
 <h1>new user</h1>
 
-<form method="POST" action="home">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit">
-</form>
+  {% if registered %}
+  <p>Thank you for registering!</p>
+  <a href="{% url 'home' %}">Login</a>
+  {% else %}
+    <form method="POST" action="{% url 'new_user' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" name="submit" value="sign up"/>
+    </form>
+  {% endif %}
+</body>
+
+</html>
