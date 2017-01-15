@@ -23,8 +23,9 @@ from clientcolony.forms import LoginForm
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^$', clientcolony_views.login, name='login'),
-    url(r'^sheet/', charsheet_views.sheet, name='sheet'),
+    #url(r'^sheet/', charsheet_views.sheet, name='sheet'),
     url(r'', include('clientcolony.urls')),
+    url(r'', include('charsheet.urls')),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', clientcolony_views.logout_view, name='logout'),
     url(r'^login/new_user/$', clientcolony_views.new_user, name='new_user'),
