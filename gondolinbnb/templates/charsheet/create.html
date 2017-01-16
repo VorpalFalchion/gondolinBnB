@@ -4,7 +4,7 @@
 
 <h1>edit</h1>
 
-<form method="POST" action="{% url 'edit' id=character.id %}">
+<form method="POST" action="{% url 'create' %}">
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" name="submit" value="Save"/>
