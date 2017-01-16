@@ -11,6 +11,7 @@
 {% if character_list %}
 {% for character in character_list %}
 <p>{{ character.name }}</p>
+<a href="{% url 'charsheet' id=character.id %}">View</a>
 {% endfor %}
 {% endif %}
 

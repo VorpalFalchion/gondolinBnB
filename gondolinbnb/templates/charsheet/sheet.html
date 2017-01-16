@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %}
 
-    <title>{{character}}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- Latest compiled and minified CSS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> <!-- jQuery library -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- Latest compiled JavaScript -->
-    <!-- {% load static %} commented this out while playing around with the style -->
-    <link rel="stylesheet" type="text/css" href='{% static 'charsheet/sheet.css' %}' />
-  </head>
+{% block content %}
 
-  <body>
-    <div class="container">
-      <h1>{{character}} - {{campaign}}</h1>
+<h1>{{character.name}}</h1>
 
-      <footer class="container footer">
-        <p>Client Communities | &copy; 2016 GondolinBnB</p>
-      </footer>
-    </div>
-  </body>
-</html>
+<p>race: {{character.race}}</p>
+<p>class: {{character.char_class}}</p>
+
+{% endblock %}

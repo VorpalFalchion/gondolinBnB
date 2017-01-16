@@ -2,11 +2,18 @@
 
 {% block content %}
 
-<h1>Home Page</h1>
-<br>
-<a href="{% url 'index' %}">Character Index</a>
+<div class="row">
+  <div class="col-xs-6 col-centered">
+    <h1>Home Page</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <a href="{% url 'index' %}">Character Index</a>
+  </div>
 
-<br><br><br><br>
-<a href="{% url 'logout' %}">Logout</a>
-
+  <div class="col-xs-6">
+    <p>The campaign tracker is coming soon!</p>
+  </div>
+</div>
 {% endblock %}

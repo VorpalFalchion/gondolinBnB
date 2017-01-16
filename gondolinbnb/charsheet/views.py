@@ -6,8 +6,12 @@ from .models import Character
 @login_required(login_url='login/')
 
 # Create your views here.
-def sheet(request):
-    return render(request, 'charsheet/sheet.html')
+def sheet(request, id):
+    character = Character.objects.get(pk=id)
+    context = {
+        'character': character,
+    }
+    return render(request, 'charsheet/sheet.html', context)
 
 def index(request):
     character_list = Character.objects.filter(player_id=request.user.id)
