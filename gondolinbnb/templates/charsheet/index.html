@@ -2,3 +2,10 @@
 
 <br>
 <a href="{% url 'edit' %}">New Character</a>
+
+<br><br><br><br>
+{% if character_list %}
+{% for character in character_list %}
+<p>{{ character.name }}</p>
+{% endfor %}
+{% endif %}

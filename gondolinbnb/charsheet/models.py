@@ -1,9 +1,10 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 # Create your models here.
 class Character(models.Model):
-    player = models.ForeignKey('auth.User')
+    player = models.ForeignKey(settings.AUTH_USER_MODEL)
 
     name = models.CharField(max_length=30)
     race = models.CharField(max_length=30)
