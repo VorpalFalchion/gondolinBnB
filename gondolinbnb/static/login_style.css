@@ -1,0 +1,21 @@
+.login {
+  background-image: url("https://quinnphotos.files.wordpress.com/2011/04/jeff_h_books_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  height: 80%;
+}
+
+#login_box {
+  border-radius: 1rem;
+  background-color: rgba(245, 245, 245, 0.75);
+  height: 80%;
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
