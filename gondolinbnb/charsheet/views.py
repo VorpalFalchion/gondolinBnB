@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import CharacterForm
 from .models import Character
@@ -20,29 +20,19 @@ def index(request):
     }
     return render(request, 'charsheet/index.html', context)
 
-def edit(request, id=''):
-    new_flag = False
-    character = ''
-    if id=='':
-        new_flag = True
-    else:
-        character = Character.objects.get(pk=id)
+def edit(request, id):
+    character = Character.objects.get(pk=id)
 
     if request.method == "POST":
-        form = CharacterForm(request.POST)
+        form = CharacterForm(request.POST, instance=character)
 
-        if form.is_valid() and new_flag == True:
-            new_char = form.save(commit=False)
-            new_char.player_id = request.user.id
-            new_char.save()
-        elif form.is_valid() and new_flag == False:
+        if form.is_valid():
+            character = form.save(commit=False)
+            character.player_id = request.user.id
             character.save()
+            return redirect(index)
 
-    else:
-        if new_flag == True:
-            form = CharacterForm()
-        else:
-            form = CharacterForm(instance=character)
+    form = CharacterForm(instance=character)
 
     context = {
         'character': character,
@@ -57,6 +47,13 @@ def create(request):
             new_char = form.save(commit=False)
             new_char.player_id = request.user.id
             new_char.save()
+            return redirect(index)
     else:
         form = CharacterForm()
     return render(request, "charsheet/create.html", {'form': form,})
+
+def delete(request, id):
+    character = Character.objects.get(pk=id)
+
+    character.delete()
+    return redirect(index)
