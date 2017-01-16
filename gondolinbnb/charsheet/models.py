@@ -24,12 +24,24 @@ class Stats(models.Model):
     wis = models.SmallIntegerField(blank=True, null=True)
     cha = models.SmallIntegerField(blank=True, null=True)
 
-    str_mod = models.SmallIntegerField(blank=True, null=True)
-    dex_mod = models.SmallIntegerField(blank=True, null=True)
-    con_mod = models.SmallIntegerField(blank=True, null=True)
-    int_mod = models.SmallIntegerField(blank=True, null=True)
-    wis_mod = models.SmallIntegerField(blank=True, null=True)
-    cha_mod = models.SmallIntegerField(blank=True, null=True)
+    @property
+    def str_mod(self):
+        return int((self.str - 10) / 2)
+    @property
+    def dex_mod(self):
+        return int((self.dex - 10) / 2)
+    @property
+    def con_mod(self):
+        return int((self.con - 10) / 2)
+    @property
+    def int_mod(self):
+        return int((self.int - 10) / 2)
+    @property
+    def wis_mod(self):
+        return int((self.wis - 10) / 2)
+    @property
+    def cha_mod(self):
+        return int((self.cha - 10) / 2)
 
 class Misc(models.Model):
     belongs_to = models.ForeignKey('Character')
