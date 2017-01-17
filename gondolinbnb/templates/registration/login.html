@@ -1,0 +1,66 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# display django.contrib.messages as bootstrap alerts #}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>GondolinBnB</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="https://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href='{% static 'login_style.css' %}' />
+
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row login">
+        <div class="col-md-4 rounded col-centered" id="login_box">
+          <h2 class="text-center">Access your Account</h2>
+          <br>
+          <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+
+            <p class="bs-component">
+              <table>
+                <tr>
+                  <td>{{ form.username.label_tag }}</td>
+                  <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                  <td>{{ form.password.label_tag }}</td>
+                  <td>{{ form.password }}</td>
+                </tr>
+              </table>
+            </p>
+            <p class="bs-component">
+              <center>
+                <input class="btn btn-success btn-sm" type="submit" value="login" />
+              </center>
+            </p>
+            <input type="hidden" name="next" value="{{ next }}" />
+          </form>
+
+          {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+          {% endif %}
+
+          <p>forgot your password? <a href="forgot_password">click here</a></p>
+          <p>new user? <a href="new_user">create new account</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="footer">
+          <p><small>Client Communities @ 2016 | GondolinBnB</small></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

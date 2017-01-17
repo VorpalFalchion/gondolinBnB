@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>index</h1>
+
+<br>
+<a href="{% url 'create' %}">New Character</a>
+
+<br><br><br><br>
+{% if character_list %}
+{% for character in character_list %}
+  <div class = 'row' id = 'character_list_row'>
+    <div class = 'col-xs-4'>
+      <a href="{% url 'charsheet' id=character.id %}" class = 'btn btn-primary btn-lg'>
+        {{ character.name }}
+      </a>
+
+      </div>
+    <div class = 'col-xs-4'>
+      <p>race: {{ character.race }}</p>
+      <p>class: {{ character.char_class }}</p>
+    </div>
+    <!--<a href="{% url 'charsheet' id=character.id %}">View</a>-->
+    <div class = 'col-xs-4'>
+      <a href="{% url 'edit' id=character.id %}" class = 'btn btn-info btn-sm'>Edit</a>
+      <a href="{% url 'delete' id=character.id %}" class = 'btn btn-danger btn-sm'>Delete</a>
+    </div>
+  </div>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
