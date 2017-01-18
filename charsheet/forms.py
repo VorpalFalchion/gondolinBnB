@@ -41,17 +41,22 @@ class AttacksForm(forms.ModelForm):
         model = Attacks
         fields = ['attack_name','atk_bonus','crit','damage','range','type']
 
+AttacksFormSet = inlineformset_factory(Character, Attacks, fields=['attack_name','atk_bonus','crit','damage','range','type'])
+
 #many to one
 class ArmorForm(forms.ModelForm):
     class Meta:
         model = Armor
         fields = ['armor_name','ac_bonus','max_dex','armor_penalty']
 
+ArmorFormSet = inlineformset_factory(Character, Armor, fields=['armor_name','ac_bonus','max_dex','armor_penalty'])
 #many to one
 class SpellsForm(forms.ModelForm):
     class Meta:
         model = Spells
         fields = ['spell_name','spell_desc','spell_lvl']
+
+SpellsFormSet = inlineformset_factory(Character, Spells, fields=['spell_name','spell_lvl','spell_desc'])
 
 class MoneyForm(forms.ModelForm):
     class Meta:
@@ -64,14 +69,19 @@ class GearForm(forms.ModelForm):
         model = Gear
         fields = ['item_name','item_weight']
 
+GearFormSet = inlineformset_factory(Character, Gear, fields=['item_name','item_weight'])
+
 #many to one
 class FeatsForm(forms.ModelForm):
     class Meta:
         model = Feats
         fields = ['feat_name','feat_desc']
 
+FeatsFormSet = inlineformset_factory(Character, Feats, fields=['feat_name','feat_desc'])
 #many to one
 class LinksForm(forms.ModelForm):
     class Meta:
         model = Links
         fields = ['link_name','link_url']
+
+LinksFormSet = inlineformset_factory(Character, Links, fields=['link_name','link_url'])
