@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import inlineformset_factory
 from .models import Character, Stats, Misc, Skills, Saves, Maneuvers, Attacks, Armor, Spells, Money, Gear, Feats, Links
 
 class CharacterForm(forms.ModelForm):
@@ -21,6 +22,8 @@ class SkillsForm(forms.ModelForm):
     class Meta:
         model = Skills
         fields = ['skill_name','ranks']
+
+SkillsFormSet = inlineformset_factory(Character, Skills, fields=['skill_name','ranks'])
 
 class SavesForm(forms.ModelForm):
     class Meta:
