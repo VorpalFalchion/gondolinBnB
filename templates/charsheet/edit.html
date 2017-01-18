@@ -6,19 +6,66 @@
 
 <form method="POST" action="{% url 'edit' id=character.id %}">
   {% csrf_token %}
-  {{ character_form.as_p }}
-  {{ stats_form.as_p }}
-  {{ misc_form.as_p }}
-  {{ skills_formset.as_p }}
-  {{ saves_form.as_p }}
-  {{ maneuvers_form.as_p }}
-  {{ attacks_formset.as_p }}
-  {{ armor_formset.as_p }}
-  {{ spells_formset.as_p }}
-  {{ money_form.as_p }}
-  {{ gear_formset.as_p }}
-  {{ feats_formset.as_p }}
-  {{ links_formset.as_p }}
+  <div class='row'>
+    <div class='col-md-4 col-centered'>
+      {{ character_form.as_p }}
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-4 pre-scrollable'>
+      {{ stats_form.as_p }}
+    </div>
+
+    <div class='col-md-4 pre-scrollable'>
+      {{ misc_form.as_p }}
+    </div>
+
+    <div class='col-md-4 pre-scrollable'>
+      {{ skills_formset.as_p }}
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-4 pre-scrollable'>
+      {{ saves_form.as_p }}
+    </div>
+
+    <div class='col-md-4 pre-scrollable'>
+      {{ maneuvers_form.as_p }}
+    </div>
+
+    <div class='col-md-4 pre-scrollable'>
+      {{ attacks_formset.as_p }}
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-4 pre-scrollable'>
+      {{ armor_formset.as_p }}
+    </div>
+
+    <div class='col-md-4 pre-scrollable'>
+      {{ spells_formset.as_p }}
+    </div>
+
+    <div class='col-md-4 pre-scrollable'>
+      {{ money_form.as_p }}
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-4 pre-scrollable'>
+      {{ gear_formset.as_p }}
+    </div>
+
+    <div class='col-md-4 pre-scrollable'>
+      {{ feats_formset.as_p }}
+    </div>
+
+    <div class='col-md-4 pre-scrollable'>
+      {{ links_formset.as_p }}
+    </div>
 
   <input type="submit" name="submit" value="Save"/>
 </form>

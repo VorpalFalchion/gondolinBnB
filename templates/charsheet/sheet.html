@@ -2,76 +2,114 @@
 
 {% block content %}
 
-<h1>{{character.name}}</h1>
+<div class='row'>
+  <div class='col-md-4'>
+    <h1>{{character.name}}</h1>
+  </div>
 
-<h2>HP: {{ misc.hp }}</h2>
-<p>race: {{character.race}}</p>
-<p>class: {{character.char_class}}</p>
+  <div class='col-md-4 col-md-offset-4'>
+    <h2>HP: {{ misc.hp }}</h2>
+    <p>race: {{character.race}}</p>
+    <p>class: {{character.char_class}}</p>
+  </div>
+</div>
 
-<h2>Stats</h2>
-<p>str: {{ stats.str }} mod: {{ stats.str_mod }}</p>
-<p>dex: {{ stats.dex }} mod: {{ stats.dex_mod }}</p>
-<p>con: {{ stats.con }} mod: {{ stats.con_mod }}</p>
-<p>int: {{ stats.int }} mod: {{ stats.int_mod }}</p>
-<p>wis: {{ stats.wis }} mod: {{ stats.wis_mod }}</p>
-<p>cha: {{ stats.cha }} mod: {{ stats.cha_mod }}</p>
+<div class='row'>
+  <div class='col-md-4'>
+    <h2>Stats</h2>
+    <p>str: {{ stats.str }} mod: {{ stats.str_mod }}</p>
+    <p>dex: {{ stats.dex }} mod: {{ stats.dex_mod }}</p>
+    <p>con: {{ stats.con }} mod: {{ stats.con_mod }}</p>
+    <p>int: {{ stats.int }} mod: {{ stats.int_mod }}</p>
+    <p>wis: {{ stats.wis }} mod: {{ stats.wis_mod }}</p>
+    <p>cha: {{ stats.cha }} mod: {{ stats.cha_mod }}</p>
+  </div>
 
-<h2>Misc</h2>
-<p>ac: {{ misc.ac }}</p>
-<p>initiative: {{ misc.init }}</p>
-<p>speed: {{ misc.speed }}</p>
-<p>damage resistance: {{ misc.damage_resistance }}</p>
+  <div class = 'col-md-4'>
+    <h2>Misc</h2>
+    <p>ac: {{ misc.ac }}</p>
+    <p>initiative: {{ misc.init }}</p>
+    <p>speed: {{ misc.speed }}</p>
+    <p>damage resistance: {{ misc.damage_resistance }}</p>
+  </div>
 
-<h2>Skills</h2>
-{% for skills in skills %}
-<p>{{ skills.skill_name }} - {{ skills.ranks }}</p>
-{% endfor %}
+  <div class = 'col-md-4'>
+    <h2>Skills</h2>
+    {% for skills in skills %}
+      <p>{{ skills.skill_name }} - {{ skills.ranks }}</p>
+    {% endfor %}
+  </div>
+</div>
 
-<h2>Saves</h2>
-<p>fort: {{ saves.fort }}</p>
-<p>reflex: {{ saves.reflex }}</p>
-<p>will: {{ saves.will }}</p>
+<div class='row'>
+  <div class='col-md-4'>
+    <h2>Saves</h2>
+    <p>fort: {{ saves.fort }}</p>
+    <p>reflex: {{ saves.reflex }}</p>
+    <p>will: {{ saves.will }}</p>
+  </div>
 
-<h2>Maneuvers</h2>
-<p>cmb: {{ maneuvers.cmb }}</p>
-<p>cmd: {{ maneuvers.cmd }}</p>
+  <div class='col-md-4'>
+    <h2>Maneuvers</h2>
+    <p>cmb: {{ maneuvers.cmb }}</p>
+    <p>cmd: {{ maneuvers.cmd }}</p>
+  </div>
 
-<h2>Attacks</h2>
-{% for attacks in attacks %}
-<p>{{ attacks.attack_name }} - atk: {{ attacks.atk_bonus }} - damage: {{ attacks.damage }}</p>
-<p>crit: {{ attacks.crit }} - range: {{ attacks.range }} - type: {{ attacks.type }}</p>
-{% endfor %}
+  <div class='col-md-4'>
+    <h2>Attacks</h2>
+    {% for attacks in attacks %}
+      <p>{{ attacks.attack_name }} - atk: {{ attacks.atk_bonus }} - damage: {{ attacks.damage }}</p>
+      <p>crit: {{ attacks.crit }} - range: {{ attacks.range }} - type: {{ attacks.type }}</p>
+    {% endfor %}
+  </div>
+</div>
 
-<h2>Armor</h2>
-{% for armor in armor %}
-<p>{{ armor.armor_name }} - ac bonus: {{ armor.ac_bonus }} - max dex bonus: {{ armor.max_dex }} - armor penalty: {{ armor.armor_penalty }}</p>
-{% endfor %}
+<div class='row'>
+  <div class='col-md-4'>
+    <h2>Armor</h2>
+    {% for armor in armor %}
+      <p>{{ armor.armor_name }} - ac bonus: {{ armor.ac_bonus }} - max dex bonus: {{ armor.max_dex }} - armor penalty: {{ armor.armor_penalty }}</p>
+    {% endfor %}
+  </div>
 
-<h2>Spells</h2>
-{% for spells in spells %}
-<p>{{ spells.spell_name }} - level: {{ spells.spell_lvl }}</p>
-<p>{{ spells.spell_desc }}</p>
-{% endfor %}
+  <div class='col-md-4'>
+    <h2>Spells</h2>
+    {% for spells in spells %}
+      <p>{{ spells.spell_name }} - level: {{ spells.spell_lvl }}</p>
+      <p>{{ spells.spell_desc }}</p>
+    {% endfor %}
+  </div>
 
-<h2>Money</h2>
-<p>Gold: {{ money.gold }}</p>
-<p>Silver: {{ money.silver }}</p>
-<p>Copper: {{ money.copper }}</p>
+  <div class='col-md-4'>
+    <h2>Money</h2>
+    <p>Gold: {{ money.gold }}</p>
+    <p>Silver: {{ money.silver }}</p>
+    <p>Copper: {{ money.copper }}</p>
+  </div>
+</div>
 
-<h2>Gear</h2>
-{% for gear in gear %}
-<p>{{ gear.item_name }} - weight: {{ gear.item_weight }}
-{% endfor %}
+<div class='row'>
+  <div class='col-md-4'>
+    <h2>Gear</h2>
+    {% for gear in gear %}
+      <p>{{ gear.item_name }} - weight: {{ gear.item_weight }}
+    {% endfor %}
+  </div>
 
-<h2>Feats</h2>
-{% for feats in feats %}
-<p>{{ feats.feat_name }}</p>
-<p>{{ feats.feat_desc }}</p>
-{% endfor %}
+  <div class='col-md-4'>
+    <h2>Feats</h2>
+    {% for feats in feats %}
+      <p>{{ feats.feat_name }}</p>
+      <p>{{ feats.feat_desc }}</p>
+    {% endfor %}
+  </div>
 
-<h2>Links</h2>
-{% for links in links %}
-<a href="{{ links.link_url }}">{{ links.link_name }}</a>
-{% endfor %}
+  <div class='col-md-4'>
+    <h2>Links</h2>
+    {% for links in links %}
+      <a href="{{ links.link_url }}">{{ links.link_name }}</a>
+    {% endfor %}
+  </div>
+</div>
 
 {% endblock %}
