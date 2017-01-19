@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
+    {% load static %}
     {% load bootstrap3 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     {# display django.contrib.messages as bootstrap alerts #}
     {% bootstrap_messages %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
     <title>GondolinBnB</title>
-    <!--{% load static %} -->
     <link rel="stylesheet" type="text/css" href='{% static 'login_style.css' %}' />
   </head>
 
@@ -18,7 +18,6 @@
       <div class="row login">
         <div class="col-md-4 rounded col-centered" id="login_box">
           <h2 class="text-center">Access your Account</h2>
-          <br>
           <form  method="post" action="{% url 'login' %}">
             {% csrf_token %}
             <div class="form-group">
@@ -34,18 +33,20 @@
                 <input class="form-control" id="id_password" name="password" type="password" required />
               </div>
             </div>
+
             <div class="form-group">
               <input class="btn btn-success btn-md form-control" type="submit" value="Login" />
               <input type="hidden" name="next" value="{{ next }}" class="form-control"/>
               {% if form.errors %}
                 <p>Your username and password didn't match. Please try again.</p>
               {% endif %}
-              <p>forgot your password? <a href="forgot_password">click here</a></p>
-              <p>new user? <a href="new_user">create new account</a></p>
+              <p><br>forgot your password? <a href="forgot_password">click here</a><br>
+              new user? <a href="new_user">create new account</a></p>
             </div>
           </form>
         </div>
       </div>
+
       <div class="row">
         <div class="footer">
           <p><small>Client Communities @ 2016 | GondolinBnB</small></p>
