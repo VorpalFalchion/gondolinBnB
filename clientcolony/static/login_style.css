@@ -1,4 +1,5 @@
 .login {
+  background-color: lightgray;
   background-image: url("https://quinnphotos.files.wordpress.com/2011/04/jeff_h_books_1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -7,7 +8,7 @@
   height: 80%;
 }
 
-#login_box {
+.login_box {
   border-radius: 1rem;
   background-color: rgba(245, 245, 245, 0.75);
   height: 80%;
@@ -18,4 +19,14 @@
 .col-centered{
   float: none;
   margin: 0 auto;
+}
+
+.new-User {
+  background-color: lightgray;
+  background-image: url("https://www.sciencenews.org/sites/default/files/main/blogposts/sci_perirhinalcortex_free.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  height: 80%;
 }

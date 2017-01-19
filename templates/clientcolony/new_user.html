@@ -1,28 +1,69 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% load static %}
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {# display django.contrib.messages as bootstrap alerts #}
+    {% bootstrap_messages %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Client | Communities</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Client Colony | New User</title>
+    <link rel="stylesheet" type="text/css" href='{% static 'login_style.css' %}' />
   </head>
 
-<body>
-
-<h1>new user</h1>
-
-  {% if registered %}
-  <p>Thank you for registering!</p>
-  <a href="{% url 'home' %}">Login</a>
-  {% else %}
-    <form method="POST" action="{% url 'new_user' %}">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" name="submit" value="sign up"/>
-    </form>
-  {% endif %}
-</body>
-
+  <body>
+    <div class="container">
+      <div class="row new-User">
+        <div class="col-md-4 rounded col-centered login_box">
+          {% if registered %}
+            <div class="text-center">
+              <h2>Thank you for registering!</h2>
+              <a href="{% url 'home' %}" role="button" class="btn btn-success btn-md">Login</a>
+              <br>
+            </div>
+          {% else %}
+            <h2 class="text-center">Create New User</h2>
+            <form method="POST" action="{% url 'new_user' %}">
+              {% csrf_token %}
+              <div class="form-group">
+                <label class="control-label" for="id_username">Username:</label>
+                <div class="span">
+                  <input class="form-control" id="id_username" maxlength="150" name="username" type="text" required />
+                  <i><small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small></i>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="id_first_name">First name:</label>
+                <div class="span">
+                  <input class="form-control" id="id_first_name" maxlength="30" name="first_name" type="text" /></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="id_email">Email address:</label>
+                <div class="span">
+                  <input class="form-control" id="id_email" maxlength="254" name="email" type="email" /></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="id_password">Password:</label>
+                <div class="span">
+                  <input class="form-control" id="id_password" name="password" type="password" required /></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="btn btn-success btn-md form-control" type="submit" name="submit" value="sign up" />
+              </div>
+          </form>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="footer">
+          <p><small>Client Communities @ 2016 | GondolinBnB</small></p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
