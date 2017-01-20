@@ -28,7 +28,7 @@ SECRET_KEY = 'bf$7vxpydrmps721!yvnob8*0+$u3ja+y2srh3(h-72v28@0l8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gondolinbnb.herokuapp.com']
 
 
 # Application definition
