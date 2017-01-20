@@ -11,13 +11,25 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static')
+)
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+#added 1/20 MA
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
