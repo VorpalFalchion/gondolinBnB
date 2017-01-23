@@ -2,17 +2,18 @@
 
 {% block content %}
 
-<div class="row">
+{% load static %}
+<div class="row char_overview" style="background: url('{% static 'paper-background-9.jpg' %}')">
   <div class="col-xs-6 col-centered">
     <h1>Home Page</h1>
   </div>
 </div>
-<div class="row">
+<div class="row char_sheet" style="background: url('{% static 'paper-background-9.jpg' %}')">
   <div class="col-xs-6">
-    <a href="{% url 'index' %}">Character Index</a>
+    <a href="{% url 'index' %}" class='btn btn-info'>Character Index</a>
   </div>
 
-  <div class="col-xs-6">
+  <div class="col-xs-6 character_card text-center">
     <p>The campaign tracker is coming soon!</p>
   </div>
 </div>
