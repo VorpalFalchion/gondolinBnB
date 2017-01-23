@@ -2,114 +2,275 @@
 
 {% block content %}
 
-<div class='row'>
-  <div class='col-md-4'>
+<div class='row char_overview'>
+  <div class='col-xs-4'>
     <h1>{{character.name}}</h1>
   </div>
 
-  <div class='col-md-4 col-md-offset-4'>
+  <div class='col-xs-4 col-xs-offset-4'>
     <h2>HP: {{ misc.hp }}</h2>
     <p>race: {{character.race}}</p>
     <p>class: {{character.char_class}}</p>
   </div>
 </div>
 
-<div class='row'>
-  <div class='col-md-4'>
-    <h2>Stats</h2>
-    <p>str: {{ stats.str }} mod: {{ stats.str_mod }}</p>
-    <p>dex: {{ stats.dex }} mod: {{ stats.dex_mod }}</p>
-    <p>con: {{ stats.con }} mod: {{ stats.con_mod }}</p>
-    <p>int: {{ stats.int }} mod: {{ stats.int_mod }}</p>
-    <p>wis: {{ stats.wis }} mod: {{ stats.wis_mod }}</p>
-    <p>cha: {{ stats.cha }} mod: {{ stats.cha_mod }}</p>
+{% load static %}
+<div class='row char_sheet' style="background: url('{% static 'chainmail.jpg' %}')">
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <table class = 'table table-condensed table-striped'>
+        <tr>
+          <th>Ability</th>
+          <th>Score</th>
+          <th>Modifier</th>
+        </tr>
+        <tr>
+          <td>STR</td>
+          <td>{{ stats.str }}</td>
+          <td>{{ stats.str_mod }}</td>
+        <tr>
+          <td>Dex</td>
+          <td>{{ stats.dex }}</td>
+          <td>{{ stats.dex_mod }}</td>
+        </tr>
+        <tr>
+          <td>CON</td>
+          <td>{{ stats.con }}</td>
+          <td>{{ stats.con_mod }}</td>
+        </tr>
+        <tr>
+          <td>INT</td>
+          <td>{{ stats.int }}</td>
+          <td>{{ stats.int_mod }}</td>
+        </tr>
+        <tr>
+          <td>WIS</td>
+          <td>{{ stats.wis }}</td>
+          <td>{{ stats.wis_mod }}</td>
+        <tr>
+          <td>CHA</td>
+          <td>{{ stats.cha }}</td>
+          <td>{{ stats.cha_mod }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 
-  <div class = 'col-md-4'>
-    <h2>Misc</h2>
-    <p>ac: {{ misc.ac }}</p>
-    <p>initiative: {{ misc.init }}</p>
-    <p>speed: {{ misc.speed }}</p>
-    <p>damage resistance: {{ misc.damage_resistance }}</p>
+  <div class = "col-md-4 col-xs-6 pre-scrollable">
+    <div class='card'>
+      <table class='table table-condensed table-striped'>
+        <tr>
+          <th>Misc Stats<th>
+        </tr>
+        <tr>
+          <td>AC</td>
+          <td>{{ misc.ac }}</td>
+        </tr>
+        <tr>
+          <td>Initiative</td>
+          <td>{{ misc.init }}</td>
+        </tr>
+        <tr>
+          <td>Speed</td>
+          <td>{{ misc.speed }}</td>
+        </tr>
+        <tr>
+          <td>Damage Resist.</td>
+          <td>{{ misc.damage_resistance }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 
-  <div class = 'col-md-4'>
-    <h2>Skills</h2>
-    {% for skills in skills %}
-      <p>{{ skills.skill_name }} - {{ skills.ranks }}</p>
-    {% endfor %}
+  <div class = 'col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <table class='table table-condensed table-striped'>
+        <tr>
+          <th>Skill Name</th>
+          <th>Ranks</th>
+        <tr>
+        {% for skills in skills %}
+        <tr>
+          <td>{{ skills.skill_name }}</td>
+          <td>{{ skills.ranks }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <table class='table table-condensed table-striped'>
+        <tr>
+          <th>Saves</th>
+        </tr>
+        <tr>
+          <td>Fortitude</td>
+          <td>{{ saves.fort }}</td>
+        </tr>
+        <tr>
+          <td>Reflex</td>
+          <td>{{ saves.reflex }}</td>
+        </tr>
+        <tr>
+          <td>Will</td>
+          <td>{{ saves.will }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <table class='table table-condensed table-striped'>
+        <tr>
+          <th>Maneuvers</th>
+        </tr>
+        <tr>
+          <td>CMB</td>
+          <td>{{ maneuvers.cmb }}</td>
+        </tr>
+        <tr>
+          <td>CMD</td>
+          <td>{{ maneuvers.cmd }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <table class='table table-condensed table-striped'>
+        <h3>Attacks</h3>
+        {% for attacks in attacks %}
+        <tr>
+          <th>{{ attacks.attack_name }}</th>
+        </tr>
+        <tr>
+          <td>Attack</td>
+          <td>{{ attacks.atk_bonus }}<td>
+        <tr>
+          <td>Damage</td>
+          <td>{{ attacks.damage }}</td>
+        </tr>
+        <tr>
+          <td>Crit.</td>
+          <td>{{ attacks.crit }}</td>
+        </tr>
+        <tr>
+          <td>Range</td>
+          <td>{{ attacks.range }}</td>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>{{ attacks.type }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+
+
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <h3>Armor</h3>
+      <table class='table table-condensed table-striped'>
+      {% for armor in armor %}
+        <tr>
+          <th>{{ armor.armor_name }}</th>
+        <tr>
+        <tr>
+          <td>AC bonus</td>
+          <td>{{ armor.ac_bonus }}</td>
+        </tr>
+        <tr>
+          <td>Max Dex. Bonus</td>
+          <td>{{ armor.max_dex }}</td>
+        <tr>
+          <td>Armor Penalty</td>
+          <td>{{ armor.armor_penalty }}</td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <h3>Spells</h3>
+      {% for spells in spells %}
+        <p>{{ spells.spell_name }} - level: {{ spells.spell_lvl }}</p>
+        <p>{{ spells.spell_desc }}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <table class='table table-condensed table-striped'>
+        <tr>
+          <th>Money</th>
+        </tr>
+        <tr>
+          <td>Gold</td>
+          <td>{{ money.gold }}</td>
+        </tr>
+        <tr>
+          <td>Silver</td>
+          <td>{{ money.silver }}</td>
+        </tr>
+        <tr>
+          <td>Copper</td>
+          <td>{{ money.copper }}</td>
+      </table>
+    </div>
+  </div>
+
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <h3>Gear</h3>
+      <table class='table table-condensed table-striped'>
+        <tr>
+          <th>Item</th>
+          <th>Weight</th>
+        </tr>
+        {% for gear in gear %}
+        <tr>
+          <td>{{ gear.item_name }}</td>
+          <td>{{ gear.item_weight }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <h3>Feats</h3>
+      <table class='table table-condensed table-striped'>
+      {% for feats in feats %}
+        <tr>
+          <th>{{ feats.feat_name }}</th>
+        </tr>
+        <tr>
+          <td>{{ feats.feat_desc }}</td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+  </div>
+
+  <div class='col-md-4 col-xs-6 pre-scrollable'>
+    <div class='card'>
+      <h3>Links</h3>
+      {% for links in links %}
+        <a href="{{ links.link_url }}" class='btn btn-info'>{{ links.link_name }}</a>
+      {% endfor %}
+    </div>
   </div>
 </div>
 
-<div class='row'>
-  <div class='col-md-4'>
-    <h2>Saves</h2>
-    <p>fort: {{ saves.fort }}</p>
-    <p>reflex: {{ saves.reflex }}</p>
-    <p>will: {{ saves.will }}</p>
-  </div>
-
-  <div class='col-md-4'>
-    <h2>Maneuvers</h2>
-    <p>cmb: {{ maneuvers.cmb }}</p>
-    <p>cmd: {{ maneuvers.cmd }}</p>
-  </div>
-
-  <div class='col-md-4'>
-    <h2>Attacks</h2>
-    {% for attacks in attacks %}
-      <p>{{ attacks.attack_name }} - atk: {{ attacks.atk_bonus }} - damage: {{ attacks.damage }}</p>
-      <p>crit: {{ attacks.crit }} - range: {{ attacks.range }} - type: {{ attacks.type }}</p>
-    {% endfor %}
-  </div>
-</div>
-
-<div class='row'>
-  <div class='col-md-4'>
-    <h2>Armor</h2>
-    {% for armor in armor %}
-      <p>{{ armor.armor_name }} - ac bonus: {{ armor.ac_bonus }} - max dex bonus: {{ armor.max_dex }} - armor penalty: {{ armor.armor_penalty }}</p>
-    {% endfor %}
-  </div>
-
-  <div class='col-md-4'>
-    <h2>Spells</h2>
-    {% for spells in spells %}
-      <p>{{ spells.spell_name }} - level: {{ spells.spell_lvl }}</p>
-      <p>{{ spells.spell_desc }}</p>
-    {% endfor %}
-  </div>
-
-  <div class='col-md-4'>
-    <h2>Money</h2>
-    <p>Gold: {{ money.gold }}</p>
-    <p>Silver: {{ money.silver }}</p>
-    <p>Copper: {{ money.copper }}</p>
-  </div>
-</div>
-
-<div class='row'>
-  <div class='col-md-4'>
-    <h2>Gear</h2>
-    {% for gear in gear %}
-      <p>{{ gear.item_name }} - weight: {{ gear.item_weight }}
-    {% endfor %}
-  </div>
-
-  <div class='col-md-4'>
-    <h2>Feats</h2>
-    {% for feats in feats %}
-      <p>{{ feats.feat_name }}</p>
-      <p>{{ feats.feat_desc }}</p>
-    {% endfor %}
-  </div>
-
-  <div class='col-md-4'>
-    <h2>Links</h2>
-    {% for links in links %}
-      <a href="{{ links.link_url }}">{{ links.link_name }}</a>
-    {% endfor %}
-  </div>
-</div>
 
 {% endblock %}
