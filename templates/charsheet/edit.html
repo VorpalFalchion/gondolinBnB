@@ -2,72 +2,99 @@
 
 {% block content %}
 
-<h1>edit</h1>
-
 <form method="POST" action="{% url 'edit' id=character.id %}">
   {% csrf_token %}
-  <div class='row'>
-    <div class='col-md-4 col-centered'>
+  {% load static %}
+  <div class='row char_overview vertical-align' style="background: url('{% static 'paper-background-9.jpg' %}')">
+    <div class='col-xs-3 char_header_card text-center'>
+      <h1>Edit</h1>
+    </div>
+    <div class='col-md-5 col-xs-3'>
+    </div>
+    <div class='col-md-4 col-xs-6 char_header_card'>
       {{ character_form.as_p }}
     </div>
   </div>
 
-  <div class='row'>
-    <div class='col-md-4 pre-scrollable'>
-      {{ stats_form.as_p }}
+  <div class='row char_sheet' style="background: url('{% static 'paper-background-9.jpg' %}')">
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ stats_form.as_p }}
+      </div>
     </div>
 
-    <div class='col-md-4 pre-scrollable'>
-      {{ misc_form.as_p }}
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ misc_form.as_p }}
+      </div>
     </div>
 
-    <div class='col-md-4 pre-scrollable'>
-      {{ skills_formset.as_p }}
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ skills_formset.as_p }}
+      </div>
+    </div>
+
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ saves_form.as_p }}
+      </div>
+    </div>
+
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ maneuvers_form.as_p }}
+      </div>
+    </div>
+
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ attacks_formset.as_p }}
+      </div>
+    </div>
+
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ armor_formset.as_p }}
+      </div>
+    </div>
+
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ spells_formset.as_p }}
+      </div>
+    </div>
+
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ money_form.as_p }}
+      </div>
+    </div>
+
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ gear_formset.as_p }}
+      </div>
+    </div>
+
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ feats_formset.as_p }}
+      </div>
+    </div>
+
+    <div class='col-md-4 col-xs-6 pre-scrollable'>
+      <div class='card'>
+        {{ links_formset.as_p }}
+      </div>
     </div>
   </div>
 
-  <div class='row'>
-    <div class='col-md-4 pre-scrollable'>
-      {{ saves_form.as_p }}
-    </div>
-
-    <div class='col-md-4 pre-scrollable'>
-      {{ maneuvers_form.as_p }}
-    </div>
-
-    <div class='col-md-4 pre-scrollable'>
-      {{ attacks_formset.as_p }}
+  <div class='row save_button_row' style="background: url('{% static 'paper-background-9.jpg' %}')">
+    <div class='col-xs-4 col-centered'>
+      <input type="submit" name="submit" value="Save" class='btn center-block btn-success'/>
     </div>
   </div>
-
-  <div class='row'>
-    <div class='col-md-4 pre-scrollable'>
-      {{ armor_formset.as_p }}
-    </div>
-
-    <div class='col-md-4 pre-scrollable'>
-      {{ spells_formset.as_p }}
-    </div>
-
-    <div class='col-md-4 pre-scrollable'>
-      {{ money_form.as_p }}
-    </div>
-  </div>
-
-  <div class='row'>
-    <div class='col-md-4 pre-scrollable'>
-      {{ gear_formset.as_p }}
-    </div>
-
-    <div class='col-md-4 pre-scrollable'>
-      {{ feats_formset.as_p }}
-    </div>
-
-    <div class='col-md-4 pre-scrollable'>
-      {{ links_formset.as_p }}
-    </div>
-
-  <input type="submit" name="submit" value="Save"/>
 </form>
 
 {% endblock %}
