@@ -2,12 +2,25 @@
 
 {% block content %}
 
-<h1>new character</h1>
+{% load static %}
+<div class='row char_overview vertical-align' style="background: url('{% static 'paper-background-9.jpg' %}')">
+  <div class='col-xs-3 char_header_card text-center'>
+    <h1>Create</h1>
+  </div>
+  <div class='col-md-5 col-xs-3'>
+  </div>
+  <div class='col-md-4 col-xs-6 char_header_card'>
+    <p>Create a character, we'll edit the details next</p>
+  </div>
+</div>
 
-<form method="POST" action="{% url 'create' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" name="submit" value="Save"/>
-</form>
-
+<div class='row char_sheet vertical-align' style="background: url('{% static 'paper-background-9.jpg' %}')">
+  <div class = 'col-xs-10 vertical-align col-centered text-center character_card'>
+    <form method="POST" action="{% url 'create' %}">
+      {% csrf_token %}
+      {{ form.as_table }}
+      <input type="submit" name="submit" value="Save"/>
+    </form>
+  </div>
+</div>
 {% endblock %}
