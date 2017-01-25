@@ -123,3 +123,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/' #home view
+
+BOOTSTRAP3 = {
+  'jquery_url': '//code.jquery.com/jquery.min.js',
+  'include_jquery': True,
+}
