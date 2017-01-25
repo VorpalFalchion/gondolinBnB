@@ -25,7 +25,7 @@
         <tr>
           <th>Ability</th>
           <th>Score</th>
-          <th>Modifier</th>
+          <th>Mod.</th>
         </tr>
         <tr>
           <td>STR</td>
@@ -201,7 +201,7 @@
   </div>
 
   <div class='col-md-4 col-xs-6 pre-scrollable'>
-    <div class='card'>
+    <div class='card text_card'>
       <h3>Spells</h3>
       {% for spells in spells %}
         <p>{{ spells.spell_name }} - level: {{ spells.spell_lvl }}</p>
@@ -250,7 +250,7 @@
   </div>
 
   <div class='col-md-4 col-xs-6 pre-scrollable'>
-    <div class='card'>
+    <div class='card text_card'>
       <h3>Feats</h3>
       <table class='table table-condensed table-striped'>
       {% for feats in feats %}
