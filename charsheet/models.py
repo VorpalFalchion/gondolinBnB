@@ -58,7 +58,7 @@ class Misc(models.Model):
 class Skills(models.Model):
     belongs_to = models.ForeignKey('Character')
 
-    skill_name = models.CharField(max_length=30)
+    skill_name = models.CharField(max_length=30, blank=True, null=True)
     ranks = models.SmallIntegerField(blank=True, null=True)
 
 class Saves(models.Model):
@@ -77,17 +77,17 @@ class Maneuvers(models.Model):
 class Attacks(models.Model):
     belongs_to = models.ForeignKey('Character')
 
-    attack_name = models.CharField(max_length=30)
+    attack_name = models.CharField(max_length=30, blank=True, null=True)
     atk_bonus = models.SmallIntegerField(blank=True, null=True)
-    crit = models.CharField(blank=True, max_length=30)
-    damage = models.CharField(blank=True, max_length=30)
+    crit = models.CharField(blank=True, max_length=30, null=True)
+    damage = models.CharField(blank=True, max_length=30, null=True)
     range = models.SmallIntegerField(blank=True, null=True)
-    type = models.CharField(blank=True, max_length=5)
+    type = models.CharField(blank=True, max_length=5, null=True)
 
 class Armor(models.Model):
     belongs_to = models.ForeignKey('Character')
 
-    armor_name = models.CharField(blank=True, max_length=30)
+    armor_name = models.CharField(blank=True, max_length=30, null=True)
     ac_bonus = models.SmallIntegerField(blank=True, null=True)
     max_dex = models.SmallIntegerField(blank=True, null=True)
     armor_penalty = models.SmallIntegerField(blank=True, null=True)
@@ -95,8 +95,8 @@ class Armor(models.Model):
 class Spells(models.Model):
     belongs_to = models.ForeignKey('Character')
 
-    spell_name = models.CharField(blank=True, max_length=100)
-    spell_desc = models.TextField(blank=True)
+    spell_name = models.CharField(blank=True, max_length=100, null=True)
+    spell_desc = models.TextField(blank=True, null=True)
     spell_lvl = models.SmallIntegerField(blank=True, null=True)
 
 class Money(models.Model):
@@ -109,17 +109,17 @@ class Money(models.Model):
 class Gear(models.Model):
     belongs_to = models.ForeignKey('Character')
 
-    item_name = models.CharField(blank=True, max_length=30)
+    item_name = models.CharField(blank=True, max_length=30, null=True)
     item_weight = models.SmallIntegerField(blank=True, null=True)
 
 class Feats(models.Model):
     belongs_to = models.ForeignKey('Character')
 
-    feat_name = models.CharField(blank=True, max_length=30)
-    feat_desc = models.TextField(blank=True)
+    feat_name = models.CharField(blank=True, max_length=30, null=True)
+    feat_desc = models.TextField(blank=True, null=True)
 
 class Links(models.Model):
     belongs_to = models.ForeignKey('Character')
 
-    link_name = models.CharField(blank=True, max_length=100)
-    link_url = models.URLField(blank=True)
+    link_name = models.CharField(blank=True, max_length=100, null=True)
+    link_url = models.URLField(blank=True, null=True)
