@@ -10,7 +10,38 @@
 </div>
 <div class="row char_sheet" style="background: url('{% static 'paper-background-9.jpg' %}')">
   <div class="col-xs-6">
-    <a href="{% url 'index' %}" class='btn btn-info'>Character Index</a>
+    <div class="col-xs-10 vertical-align col-centered text-center">
+      <a href="{% url 'index' %}" class='btn btn-info btn-lg col-centered vertical-align margin-bottom'>Character Index</a>
+    </div>
+    {% if character_list %}
+    {% for character in character_list %}
+      <div class = 'col-xs-10 vertical-align col-centered text-center character_card'>
+        <div class = 'col-xs-4'>
+          <a href="{% url 'charsheet' id=character.id %}" class = 'btn btn-primary btn-lg'>
+            {{ character.name }}
+          </a>
+        </div>
+        <div class = 'col-xs-4'>
+          <table class='table table-condensed table-striped'>
+            <tr>
+              <th>Race</th>
+              <td>{{ character.race }}</td>
+            </tr>
+            <tr>
+              <th>Class</th>
+              <td>{{ character.char_class }}</td>
+            </tr>
+          </table>
+        </div>
+        <div class = 'col-xs-4'>
+          <a href="{% url 'edit' id=character.id %}" class = 'btn btn-info btn-sm'>Edit</a>
+          <a href="{% url 'delete' id=character.id %}" class = 'btn btn-danger btn-sm'>Delete</a>
+        </div>
+      </div>
+      <div class = 'col-xs-10 padding_top'>
+      </div>
+    {% endfor %}
+    {% endif %}
   </div>
 
   <div class="col-xs-6 character_card text-center">

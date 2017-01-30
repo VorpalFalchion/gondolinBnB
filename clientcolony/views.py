@@ -3,11 +3,16 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
+from charsheet.models import Character
 # Create your views here.
 @login_required(login_url="login/")
 
 def home(request):
-    return render(request, "clientcolony/home.html")
+    character_list = Character.objects.filter(player_id=request.user.id)
+    context = {
+        'character_list': character_list,
+    }
+    return render(request, "clientcolony/home.html", context)
 
 def logout_view(request):
     logout(request)
