@@ -41,7 +41,7 @@
     </div>
     <div class = 'col-xs-4'>
       <a href="{% url 'edit' id=character.id %}" class = 'btn btn-info btn-sm'>Edit</a>
-      <a href="{% url 'delete' id=character.id %}" class = 'btn btn-danger btn-sm'>Delete</a>
+      <a href="{% url 'delete' id=character.id %}" class = 'btn btn-danger btn-sm' onclick="return confirm('Are you sure you want to Delete {{character.name}}?');">Delete</a>
     </div>
   </div>
   <div class = 'col-xs-10 padding_top'>
